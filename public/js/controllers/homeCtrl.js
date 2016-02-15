@@ -13,7 +13,7 @@ angular.module('testApp')
           }
           $scope.hasNotSampled = function(){
             $scope.hasSampledThisBeer = false;
-            beerService.markNotSampled($scope.showingCurrently.name)
+            beerService.markNotSampled({user: $rootScope.userLoggedIn, name: $scope.showingCurrently.name})
           }
 
           $scope.submitNotes = function(){

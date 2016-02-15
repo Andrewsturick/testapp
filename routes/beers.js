@@ -21,9 +21,10 @@ router.post('/hastried', function(req, res) {
 router.post('/hasnottried', function(req, res) {
   User.find({email: req.body.user.email}, function(err, user){
     var thisUser = user[0]
-    thisUser.beers.push({beer:req.body.name, hasTried: true, notes: req.body.notes, rating: req.body.rating})
+    thisUser.beers.push({beer:req.body.name, hasTried: false})
     User.findByIdAndUpdate(thisUser._id,{beers: thisUser.beers}, function(err, updatedUser){
-      res.send('beer created')
+      console.log('nottasted');
+      res.send('nottasted')
     })
   })
 });

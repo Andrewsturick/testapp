@@ -3,8 +3,8 @@ angular.module('testApp')
         this.getBeers = function(){
           return $http.get('/beers')
         }
-        this.markNotSampled = function(name){
-          return $http.post('/beers/hasnottried')
+        this.markNotSampled = function(data){
+          return $http.post('/beers/hasnottried', data)
         }
         this.markSampled = function(data){
           console.log(data);
