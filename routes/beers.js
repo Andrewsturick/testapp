@@ -9,8 +9,23 @@ router.get('/', function(req, res) {
       res.send(data)
     })
 });
-router.post('/', function(req, res) {
-
+router.post('/hastried', function(req, res) {
+  User.find({email: req.body.user.email}, function(err, user){
+    var thisUser = user[0]
+    thisUser.beers.push({beer:req.body.name, hasTried: true, notes: req.body.notes, rating: req.body.rating})
+    User.findByIdAndUpdate(thisUser._id,{beers: thisUser.beers}, function(err, updatedUser){
+      res.send('beer created')
+    })
+  })
+});
+router.post('/hasnottried', function(req, res) {
+  User.find({email: req.body.user.email}, function(err, user){
+    var thisUser = user[0]
+    thisUser.beers.push({beer:req.body.name, hasTried: true, notes: req.body.notes, rating: req.body.rating})
+    User.findByIdAndUpdate(thisUser._id,{beers: thisUser.beers}, function(err, updatedUser){
+      res.send('beer created')
+    })
+  })
 });
 
 module.exports = router;

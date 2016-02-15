@@ -1,5 +1,5 @@
 angular.module('testApp')
-       .controller('homeCtrl', function($scope, beerService){
+       .controller('homeCtrl', function($rootScope, $scope, beerService){
           beerService.getBeers().then(function(data){
             $scope.showingCurrently = angular.fromJson(data.data.body).data
           })
@@ -17,6 +17,6 @@ angular.module('testApp')
           }
 
           $scope.submitNotes = function(){
-            beerService.markSampled({name: $scope.showingCurrently.name, rating: $scope.currentRating, notes: $scope.notes})
+            beerService.markSampled({user: $rootScope.userLoggedIn, name: $scope.showingCurrently.name, rating: $scope.currentRating, notes: $scope.notes})
           }
        })
