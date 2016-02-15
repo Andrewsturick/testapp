@@ -24,12 +24,10 @@
         <input type="radio" name="rating" id="" ng-click="thisRating(rating)">
       </div>
       {{thisRating}}
-      <!-- <label for="userNotes">tasting notes: </label> -->
-      <input ng-model="hello">
-      <button ng-click="submitNotes()">submit notes!</button>
+      tastingNotes:
     </div>
+    <input ng-show="hasSampledThisBeer" ng-model="notes">
+    <button ng-show="hasSampledThisBeer" ng-click="submitNotes()">submit notes!</button>
 
   </form>
-
-
 </div>

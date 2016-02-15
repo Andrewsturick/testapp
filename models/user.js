@@ -10,7 +10,8 @@ var User;
 
 var userSchema = mongoose.Schema({
   email: { type: String, required: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  beers: []
 });
 
 userSchema.statics.register = function(user, cb) {

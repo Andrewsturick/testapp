@@ -4,6 +4,10 @@ angular.module('testApp')
           return $http.get('/beers')
         }
         this.markNotSampled = function(name){
-          console.log(name);
+          return $http.post('/beers/hasNotTried')
+        }
+        this.markSampled = function(data){
+          console.log(data);
+          return $http.post('/beers/hasTried')
         }
       })

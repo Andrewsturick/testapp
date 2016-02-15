@@ -9,5 +9,8 @@ router.get('/', function(req, res) {
       res.send(data)
     })
 });
+router.post('/', function(req, res) {
+
+});
 
 module.exports = router;
