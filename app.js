@@ -18,6 +18,7 @@ mongoose.connect(mongoUrl, function(err){
 });
 
 var app = express();
+require('dotenv').load();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
+app.use('/register', require('./routes/register'));
 
 app.use(function(req, res){
   res.status(404).render('404');

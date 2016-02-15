@@ -1,6 +1,9 @@
 <form>
-  <input ng-model="inputEmail" type="email">
-  <input ng-model="inputPassword" type="password">
-  <input ng-model="inputPasswordRetype" type="password">
-  <button ng-disable="inputPassword != inputPasswordRetype" ng-click="registerUser()"></button>
+  <label for="email">Email:</label>
+  <input name="email" ng-model="inputEmail" type="email">
+  <label for="password1">choose password:</label>
+  <input name="password1" ng-model="inputPassword" type="password">
+  <label for="password2"> retype password</label>
+  <input name="password2" ng-model="inputPasswordRetype" type="password">
+  <button ng-disabled="inputPassword != inputPasswordRetype" ng-click="registerUser()">submit</button>
 </form>
