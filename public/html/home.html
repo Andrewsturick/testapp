@@ -1,3 +1,35 @@
 <div class="container">
-  <h1>Welcome</h1>
+
+
+
+  <h1 class="randomBeer">Here is a random beer!</h1>
+  <div class="beer-holder">
+    <br><br>
+    <h1 ng-if="showingCurrently.name" class="beerTitle">{{showingCurrently.name}}</h1>
+    <h3 ng-if="showingCurrently.name"class="type-title">style: {{showingCurrently.style.category.name || "no style provided"}}</h3>
+    <div ng-if="showingCurrently.name" class="beer-description">{{showingCurrently.description || "no description provided"}}</div>
+  </div>
+
+
+
+  <form>
+    <button ng-click="hasSampled()">I have sampled this beer before</button>
+    <button ng-click="hasNotSampled()">I have not tried this beer</button>
+
+    <div ng-if="hasSampledThisBeer">
+      <h2>cool what did you think of this beer?!</h2>
+      <h4>how do you rank this beer?</h4>
+      <div ng-repeat="rating in ratings">
+        <label for="">{{rating}}</label>
+        <input type="radio" name="rating" id="" ng-click="thisRating(rating)">
+      </div>
+      {{thisRating}}
+      <!-- <label for="userNotes">tasting notes: </label> -->
+      <input ng-model="hello">
+      <button ng-click="submitNotes()">submit notes!</button>
+    </div>
+
+  </form>
+
+
 </div>

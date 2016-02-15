@@ -8,14 +8,9 @@ router.get('/', function(req, res) {
   res.send('done')
 });
 router.post('/', function(req, res) {
-  console.log(req.body)
-  User.register(req.body, function(err, user){
-    if(err) res.send('alreadyTaken!')
-    if(user){
-      console.log(user);
-      console.log('helloooooooooo');
-      res.send('success!')
-    }
+  User.authenticate(req.body, function(err, user){
+    if(err){res.send('incorrect')}
+    if(user){res.send(user)}
   })
 });
 module.exports = router;
